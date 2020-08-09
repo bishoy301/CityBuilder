@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(CityBuilder VERSION 0.1.0)
 
-message("Generating header file: ${CMAKE_BINARY_DIR}/demo-config.h")
-set(DEMO_ENABLE_MULTISAMPLE 0 CACHE BOOL "Enable multisample anti-aliasing")
-configure_file(demo-config.h.in "${CMAKE_BINARY_DIR}/demo-config.h")
-
 include(CTest)
 enable_testing()
 
@@ -16,7 +12,7 @@ endif()
 
 # Define executable target
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2main_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIR} ${CMAKE_BINARY_DIR})
-add_executable(CityBuilder main.cpp gl2/Context.cpp)
+add_executable(CityBuilder main.cpp)
 target_link_libraries(CityBuilder ${SDL2_LIBS} ${OPENGL_LIBRARIES})
 
 # Copy SDL2 DLLs to output folder on Windows
